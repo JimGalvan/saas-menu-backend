@@ -23,8 +23,12 @@ router = routers.DefaultRouter()
 router.register(r'restaurants', views.RestaurantViewSet, 'restaurant')
 router.register(r'groups', views.ItemGroupViewSet, 'group')
 router.register(r'items', views.ItemViewSet, 'item')
+router.register(r'categories', views.ItemCategoryViewSet, 'category')
 
+# Any URL that starts with 'api/' will be handled by the router
+# Place custom URLs above the router
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/items/delete_multiple/', views.delete_multiple_items, name='delete_multiple_items'),
     path('api/', include(router.urls)),
 ]

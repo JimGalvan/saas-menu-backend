@@ -2,11 +2,15 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
-from .models import Restaurant, Item, ItemGroup
+from .models import Restaurant, Item, ItemGroup, ItemCategory
 
 
 class RestaurantAdmin(admin.ModelAdmin):
     list_display = ('RestaurantName', 'Location', 'UserID')
+
+
+class ItemCategoryAdmin(admin.ModelAdmin):
+    list_display = ('CategoryName', 'RestaurantID')
 
 
 class ItemAdmin(admin.ModelAdmin):
@@ -20,4 +24,4 @@ class ItemGroupAdmin(admin.ModelAdmin):
 admin.site.register(Restaurant, RestaurantAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(ItemGroup, ItemGroupAdmin)
-
+admin.site.register(ItemCategory, ItemCategoryAdmin)
